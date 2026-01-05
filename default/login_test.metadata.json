@@ -1,0 +1,35 @@
+{
+  "artifact_type": "pytest_test",
+  "repository": "lakshmi1212/Agentic123",
+  "default_branch": "main",
+  "python_version": "3.11",
+  "test_files": ["Tests/login_test.py"],
+  "dependencies": ["pytest", "requests"],
+  "requirements_file": "requirements.txt",
+  "required_secrets": [
+    "LOGIN_URL",
+    "LOGIN_EMAIL",
+    "LOGIN_PASSWORD"
+  ],
+  "test_command": "pytest Tests/login_test.py",
+  "ci_platform": "github_actions",
+  "workflow_file": ".github/workflows/ci.yml",
+  "trigger_options": {
+    "push": ["main"],
+    "pull_request": ["main"],
+    "workflow_dispatch": true
+  },
+  "git_operation_status": {
+    "commit_confirmation": "All test, config, and documentation files committed to main branch.",
+    "repo": "lakshmi1212/Agentic123",
+    "branch": "main",
+    "commit_hash": "<commit_hash_placeholder>"
+  },
+  "repository_files": [
+    "Tests/login_test.py",
+    ".env.template",
+    "README.md",
+    "requirements.txt",
+    "login_test.metadata.json"
+  ]
+}
