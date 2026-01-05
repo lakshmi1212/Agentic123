@@ -1,46 +1,59 @@
 # Login Automation Solution
 
 ## Project Overview
-Automated login validation using Python, pytest, and requests with secure credential handling and full git integration.
+Automated Python pytest script for secure login validation with requests, robust error handling, documentation, and automated git deployment. Ready for DevOps pipelines.
 
 ## Setup Instructions
-1. Install Python 3.11.
-2. Clone this repository.
-3. Copy `.env.template` to `.env` and fill in your LOGIN_URL, LOGIN_EMAIL, LOGIN_PASSWORD.
-4. Install dependencies:
-   ```sh
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/lakshmi1212/Agentic123.git
+   cd Agentic123
+   ```
+2. **Install Python 3.11** (required version).
+3. **Create and activate a virtual environment**:
+   ```bash
+   python3.11 -m venv venv
+   source venv/bin/activate
+   ```
+4. **Install dependencies**:
+   ```bash
    pip install -r requirements.txt
    ```
+5. **Configure environment variables**:
+   - Copy `.env.template` to `.env` and fill in your actual credentials.
+   - Export variables or use a tool like `python-dotenv`.
 
 ## Configuration Steps
-- Store your credentials in a `.env` file (never commit secrets).
-- Use environment variables for sensitive data.
+- Set the following variables in your environment:
+  - `LOGIN_URL`: Login API endpoint URL
+  - `LOGIN_EMAIL`: Email for authentication
+  - `LOGIN_PASSWORD`: Password for authentication
 
 ## Usage Guidelines
-- Run tests:
-   ```sh
-   pytest Tests/login_test.py --maxfail=1 --disable-warnings -v
-   ```
-- Test results are displayed in the console. Use `pytest --junitxml=results.xml` for CI integration.
+- Run the tests:
+  ```bash
+  pytest Tests/login_test.py --maxfail=1 --disable-warnings -v
+  ```
+- Results will appear in the terminal. For advanced reporting, integrate with JUnit or HTML plugins as needed.
 
 ## Maintenance Procedures
-- Update scripts in `Tests/` for new test cases.
-- Update `.env.template` if new variables are required.
-- Keep dependencies in `requirements.txt` up to date.
+- Update scripts and tests in `Tests/` as needed.
+- Never commit real secrets to the repository.
+- Update dependencies in `requirements.txt` and metadata as required.
+- Extend tests by adding new pytest functions in `Tests/login_test.py`.
 
-## Repository Structure
-- `Tests/login_test.py`: Login automation test script
-- `.env.template`: Example environment variable setup
-- `README.md`: This documentation
-- `requirements.txt`: Python dependencies
-- `login_test.metadata.json`: Metadata for DevOps integration
+## Troubleshooting
+- Ensure all environment variables are set and valid.
+- Check network connectivity to the login URL.
+- Review logs for error messages and failed assertions.
 
-## Security Best Practices
-- Never commit `.env` files or secrets.
-- Use environment variables and CI/CD secret management.
-- Review code for hardcoded credentials before merging.
+## Security Notice
+- Credentials are parameterized via environment variables for security.
+- No secrets are hardcoded.
+- .env files should be excluded from version control (see .gitignore).
 
-## Extending Automation
-- Add new test cases to `Tests/`.
-- Modularize test logic for scalability.
-- Integrate with GitHub Actions for automated CI/CD.
+## CI/CD Integration
+- Recommended: Add GitHub Actions workflow to automate testing on push/PR.
+
+## Contact
+For support, open an issue in the repository.
